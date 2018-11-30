@@ -1,7 +1,13 @@
 const multiplyByTen = num => {
+  // if(!num || typeof num === 'string') {
+  //   return 0;
   if(!num) {
     return 0;
   }
+    if (typeof num === ' string') {
+      throw new Error('value must be a number')
+    }
+
     return num * 10;
     // return !!num ? num * 10 : 0;
   };
