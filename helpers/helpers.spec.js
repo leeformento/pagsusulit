@@ -133,6 +133,46 @@ describe.only('areEqual', () => {
 })
 })
 
+// user stories have scenarios
+/*
+AS A (role)
+I WANT (to do something)
+SO THAT (i get some value)
+*************************
+as a sales executive
+i want to log into the system
+so that i can see my leads
+
+
+------------------------------
+************** SCENARIO ******
+GIVEN
+AND
+AND
+WHEN
+AND
+THEN
+AND
+AND
+///////////////////////
+GIVEN a valid username
+AND valid password
+WHEN the user hits the login button
+THEN the system will log in the user
+AND navigate the user to the dashboard.
+///////////////////////
+GIVEN a valid username
+AND invalid password
+WHEN the user hits the login button
+THEN the system will not log in the user
+AND show an error on screen
+AND keep the user in the login screen
+
+
+
+
+
+*/
 
 
 
