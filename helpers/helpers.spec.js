@@ -77,7 +77,7 @@ describe('async tests', () => {
 
   });
 
-  describe.only('tdd practice', () => {
+  describe('tdd practice', () => {
     it('should return true if called with strings of same length' , () => {
     const str1= 'foo'
     const str2 = 'bar'
@@ -90,15 +90,45 @@ describe('async tests', () => {
     expect(helpers.areSameLength('ab', 'a')).toBe(false);
   });
   // undefined as one of args 
-  it('', () => {
-
+  it('should return null if one or both arguments is undefined', () => {
+    expect(helpers.areSameLength('a')).toBe(null);
+    expect(helpers.areSameLength(undefined, 'a')).toBe(null);
   })
     // pass a non string
-    it('', () => {
-
+    it('should return null if called with a non string argument', () => {
+      expect(helpers.areSameLength({}, 'a')).toBe(null);
+      expect(helpers.areSameLength([], 'a')).toBe(null);
+      expect(helpers.areSameLength(false, 'a')).toBe(null);
+      expect(helpers.areSameLength('a', {})).toBe(null);
+      expect(helpers.areSameLength('a', [])).toBe(null);
+      expect(helpers.areSameLength('a', true)).toBe(null);
+      expect(helpers.areSameLength(1,3)).toBe(null);
     })
 })
-
+describe.only('areEqual', () => {
+  it('should return null if x or y are null or undefined', () => {
+    expect(helpers.areEqual(null, 'a')).toBe(null);
+    expect(helpers.areEqual(10, null)).toBe(null);
+    expect(helpers.areEqual(null, 65)).toBe(null);
+    expect(helpers.areEqual(undefined, 3)).toBe(null);
+  })
+  it('should return true if the two provided values are equal', () => {
+    const expected = true;
+    const numbers = helpers.areEqual(42,42);
+    const strings = helpers.areEqual('hey', 'hey');
+    const arrays = helpers.areEqual(['hey'], ['hey']);
+    const objects = helpers.areEqual({ hey: 1}, {hey: 1});
+    const deepObjects = helpers.areEqual(
+      {object: { hey: 42} },
+      {object: { hey: 42} }
+    );
+    expect(numbers).toEqual(expected);
+    expect(strings).toEqual(expected);
+    expect(arrays).toEqual(expected);
+    expect(objects).toEqual(expected);
+    expect(deepObjects).toEqual(expected);
+  })
+})
 })
 })
 })

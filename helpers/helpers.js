@@ -17,12 +17,18 @@ const multiplyByTen = num => {
   };
   
   const areSameLength = (str1, str2) => {
-    return str1.length === str2.length;
+    if (!str1 || !str2 || typeof str1 !=='string' || typeof str2 !== 'string') {
+      return null;
+    }
+     return str1.length === str2.length;
     // return true;
   };
   
   const areEqual = (x, y) => {
-    // return x === y;
+    if(!x || !y) {
+      return null;
+    }
+    return JSON.stringify(x) === JSON.stringify(y);
   };
   
   const someApiCall = () => {
