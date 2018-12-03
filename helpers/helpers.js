@@ -18,15 +18,21 @@ const multiplyByTen = num => {
   
   const areSameLength = (str1, str2) => {
     return str1.length === str2.length;
+    // return true;
   };
   
   const areEqual = (x, y) => {
-    return x === y;
+    // return x === y;
   };
+  
+  const someApiCall = () => {
+    return new Promise(resolve => setTimeout(resolve, 2000))
+  }
   
   module.exports = {
     multiplyByTen,
     subtractFive,
     areSameLength,
-    areEqual 
+    areEqual ,
+    someApiCall
   }

@@ -43,10 +43,11 @@ it ('should return 0 when called with no value', () => {
 //   // expect(helpers.multiplyByTen('5')).toBe(0)
 //   expect(helpers.multiplyByTen('five')).toBe(0)
 // })
-it('should throw error when called with a string', () => {
-  expect(() => { 
-    helpers.multiplyByTen('five')}).toThrow();
-});
+// it('should throw error when called with a string', () => {
+//   expect(() => { 
+//     helpers.multiplyByTen('five');
+//   }).toThrow();
+// })
 
 describe('toEqual() matcher', () => {
 it('should check deep equality', () => {
@@ -55,8 +56,54 @@ it('should check deep equality', () => {
 
   expect(a).toEqual(b);
 })
+// ASYNC TESTS
+describe('async tests', () => {
+  it('using a callback', done  => {
+    setTimeout(done, 2000)
+  });
+// PROMISES
+  it('using a promises', () => {
+    // axios.get().then(res => {
+    //   expect(res.data).toWhatever();
+
+    // return new Promise()
+    // return helpers.someApiCall()
+    return new Promise(resolve => setTimeout(resolve, 250))
+  });
+
+// ASYNC/AWAIT
+  it('using a async/await', async () => {
+    await new Promise (resolve => setTimeout(resolve, 500))
+
+  });
+
+  describe.only('tdd practice', () => {
+    it('should return true if called with strings of same length' , () => {
+    const str1= 'foo'
+    const str2 = 'bar'
+
+    const actual = helpers.areSameLength(str1, str2);
+
+    expect(actual).toBe(true)
+  });
+  it('should return true if called with strings of different length' , () => {
+    expect(helpers.areSameLength('ab', 'a')).toBe(false);
+  });
+  // undefined as one of args 
+  it('', () => {
+
+  })
+    // pass a non string
+    it('', () => {
+
+    })
+})
+
 })
 })
+})
+
+
 
 
 // test for string
